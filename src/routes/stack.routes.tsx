@@ -6,13 +6,17 @@ import Schedulling from '../screens/Schedulling';
 import SchedulingDetails from '../screens/SchedulingDetails';
 import SchedulingComplete from '../screens/SchedulingComplete';
 import MyCars from '../screens/MyCars';
+import Splash from '../screens/Splash';
 
 const {Navigator, Screen} = createStackNavigator();
 
 const StackRoutes = () => {
     return (
-        <Navigator screenOptions={{headerShown: false}}>
-            <Screen name='Home' component={Home} />
+        <Navigator screenOptions={{headerShown: false}} initialRouteName="Splash">
+            <Screen name='Splash' component={Splash} />
+            <Screen name='Home' component={Home} options={{
+                gestureEnabled: false //isso é para inibir com q o usuario nao arraste para voltar a tela dentro da tela de home
+            }} />
             <Screen name='CarDetails' component={CarDetails} />
             <Screen name='Scheduling' component={Schedulling} />
             <Screen name='SchedulingDetails' component={SchedulingDetails} />

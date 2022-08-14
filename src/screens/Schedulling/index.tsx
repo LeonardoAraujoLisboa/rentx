@@ -31,10 +31,12 @@ const Scheduling = () => {
     const {car} = route.params as Params;
 
     const handlePressConfirmRental = () => {
-        navigation.navigate('SchedulingDetails', {
-            car,
-            dates: Object.keys(markedDates)
-        })
+        if (rentalPeriod.startFormatted) {
+            navigation.navigate('SchedulingDetails', {
+                car,
+                dates: Object.keys(markedDates)
+            })
+        }
     }
 
     const handleBack = () => {
